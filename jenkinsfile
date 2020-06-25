@@ -1,9 +1,9 @@
 node{
-   stage('BUILD'){
-     def mvn = tool name: 'maven', type: 'maven'
-     sh "${mvn}/bin/mvn package"
-     echo "BUILD IS SUCCESSFUL"
-   }
+  stage('BUILD'){
+    def mvn= 'maven'
+    withEnv( ["PATH+MAVEN=${tool mvn}/bin"] ) {
+     sh "mvn clean install"
+    }
    stage('DEPLOY'){
     sshagent(['jenkinstom']) {
     echo "deploy successful"
