@@ -1,7 +1,7 @@
 node{
    stage('BUILD'){
      def mvn = tool name: 'maven', type: 'maven'
-     sh "mvn package"
+     sh "${mvn}/bin/mvn package"
      echo "BUILD IS SUCCESSFUL"
    }
    stage('DEPLOY'){
