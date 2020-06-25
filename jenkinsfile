@@ -4,6 +4,7 @@ node{
     withEnv( ["PATH+MAVEN=${tool mvn}/bin"] ) {
      sh "mvn clean install"
     }
+    }
    stage('DEPLOY'){
     sshagent(['jenkinstom']) {
     echo "deploy successful"
